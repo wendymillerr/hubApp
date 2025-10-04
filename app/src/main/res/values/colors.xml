@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="amarelo">#FFffdb31</color>
+    <color name="verde_claro">#FF8dce90</color>    <!-- Verde claro #0098db -->
+    <color name="vermelho_claro">#FFfc6266</color> <!-- Vermelho claro -->
+    <color name="cinza_claro">#E2E2E2</color>    <!-- Cinza muito claro -->
+    <color name="laranja">#FFfbbe5c</color>        <!-- Laranja -->
+    <color name="verde_amarelado">#FFbbd56c</color><!-- Verde amarelado -->
+    <color name="cinza_escuro">#5C5C5C</color>
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+    <color name="gray">#FFCCCCCC</color>
+    <color name="red">#FFFF0000</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_200">#CE93D8</color>
+    <color name="blue_200">#90CAF9</color> <!-- azul claro -->
+    <color name="blue_500">#2196F3</color> <!-- azul padrão -->
+    <color name="blue_700">#1976D2</color> <!-- azul mais escuro -->
+    <color name="gray_900">#212121</color> <!-- fundo principal -->
+    <color name="gray_700">#808080</color> <!-- fundo secundário -->
+    <color name="gray_500">#9E9E9E</color> <!-- texto secundário -->
+    <color name="gray_light">#F5F5F5</color>
+</resources>
