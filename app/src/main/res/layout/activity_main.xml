@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/white"
+    android:background="@color/gray_light"
     tools:context=".hub.MainActivity">
 
     <!-- Título -->
@@ -18,20 +18,23 @@
         android:textStyle="bold"
         android:textColor="?attr/colorOnBackground"
         android:gravity="center"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="70dp"
+        />
 
     <!-- Card Placar -->
     <LinearLayout
         android:id="@+id/cardPlacar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_card"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@drawable/bg_card"
-        android:layout_marginBottom="12dp"
-        android:elevation="6dp"
-        android:translationZ="6dp"
-        android:gravity="center_vertical">
+        android:layout_margin="5dp"
+        android:translationZ="6dp">
 
         <ImageView
             android:layout_width="40dp"
@@ -41,23 +44,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PLACAR DE BASQUETE"
-                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
-                android:textColor="?attr/colorOnBackground" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Controle de Pontos"
-                android:textSize="14sp"
-                android:textColor="?attr/colorSecondary" />
+                android:textColor="?attr/colorSecondary"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -65,14 +68,15 @@
     <LinearLayout
         android:id="@+id/cardCalc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_card"
+        android:layout_margin="5dp"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@drawable/bg_card"
-        android:layout_marginBottom="12dp"
-        android:elevation="6dp"
-        android:translationZ="6dp"
-        android:gravity="center_vertical">
+        android:translationZ="6dp">
 
         <ImageView
             android:layout_width="40dp"
@@ -82,23 +86,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CALCULADORA INFANTIL"
-                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
-                android:textColor="?attr/colorOnBackground" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Funções Avançadas"
-                android:textSize="14sp"
-                android:textColor="?attr/colorSecondary" />
+                android:textColor="?attr/colorSecondary"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -106,13 +110,14 @@
     <LinearLayout
         android:id="@+id/cardNovoApp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="96dp"
+        android:background="@drawable/bg_card"
+        android:layout_margin="5dp"
+        android:elevation="6dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="16dp"
-        android:background="@drawable/bg_card"
-        android:elevation="6dp"
-        android:translationZ="6dp"
-        android:gravity="center_vertical">>
+        android:translationZ="6dp">>
 
         <ImageView
             android:layout_width="40dp"
@@ -122,23 +127,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="12dp">
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="BLOCO DE NOTAS"
-                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
-                android:textColor="?attr/colorOnBackground" />
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Criatividade Sem Limites"
-                android:textSize="14sp"
-                android:textColor="?attr/colorSecondary" />
+                android:textColor="?attr/colorSecondary"
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 
