@@ -108,7 +108,7 @@
 
 
     <LinearLayout
-        android:id="@+id/cardNovoApp"
+        android:id="@+id/cardBlocoNotas"
         android:layout_width="match_parent"
         android:layout_height="96dp"
         android:background="@drawable/bg_card"

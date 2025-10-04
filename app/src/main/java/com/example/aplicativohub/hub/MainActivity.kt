@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.aplicativohub.R
+import com.example.aplicativohub.bloconotas.BlocoNotasActivity
 import com.example.aplicativohub.placar.PlacarActivity
 import com.example.aplicativohub.calculadora.CalculadoraActivity
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val cardPlacar = findViewById<LinearLayout>(R.id.cardPlacar)
         val cardCalc = findViewById<LinearLayout>(R.id.cardCalc)
-      //  val cardNovoApp = findViewById<LinearLayout>(R.id.cardNovoApp)
+        val cardBloco = findViewById<LinearLayout>(R.id.cardBlocoNotas)
 
         cardPlacar.setOnClickListener {
             startActivity(Intent(this, PlacarActivity::class.java))
@@ -27,6 +28,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CalculadoraActivity::class.java))
         }
 
+        cardBloco.setOnClickListener {
+            startActivity(Intent(this, BlocoNotasActivity::class.java))
+        }
 
     }
 }

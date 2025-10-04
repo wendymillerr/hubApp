@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".placar.PlacarActivity" />
         <activity android:name=".calculadora.CalculadoraActivity" />
+        <activity android:name=".bloconotas.BlocoNotasActivity" />
     </application>
 
 </manifest>
