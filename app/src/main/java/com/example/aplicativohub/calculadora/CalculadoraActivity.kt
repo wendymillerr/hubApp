@@ -34,6 +34,10 @@ class CalculadoraActivity : AppCompatActivity() {
 
         // EditText de display
         txtResultado = findViewById(R.id.txtResultado)
+        txtResultado.isFocusableInTouchMode = true
+        txtResultado.requestFocus()
+        txtResultado.isCursorVisible = true
+
 
         // Botões de dígitos
         val digits = listOf(
@@ -161,7 +165,7 @@ class CalculadoraActivity : AppCompatActivity() {
         val expression = txtResultado.text.toString()
         if (expression.isNotEmpty()) {
             try {
-                val result = evaluateExpression(expression)
+                val result = calcularExpressao(expression)
                 val decimalPlaces = SettingsActivity.getDecimalPlaces(sharedPreferences)
 
                 val formattedResult = "%.${decimalPlaces}f".format(result)
@@ -211,26 +215,76 @@ class CalculadoraActivity : AppCompatActivity() {
         }
     }
 
-    private fun evaluateExpression(expression: String): Double {
-        // Remove espaços em branco
-        var expr = expression.replace(" ", "")
+    private fun calcularExpressao(expr: String): Double {
+        val expressao = expr
+            .replace("×", "*")
+            .replace("÷", "/")
 
-        // Processa parênteses primeiro
-        while (expr.contains('(')) {
-            val openParen = expr.lastIndexOf('(')
-            val closeParen = expr.indexOf(')', openParen)
+        return try {
+            avaliar(expressao)
+        } catch (e: Exception) {
+            Double.NaN
+        }
+    }
 
-            if (closeParen == -1) throw IllegalArgumentException("Parênteses não balanceados")
+    private fun avaliar(expressao: String): Double {
+        val tokens = expressao.replace(" ", "").toCharArray()
+        val valores = java.util.Stack<Double>()
+        val operadores = java.util.Stack<Char>()
 
-            val innerExpr = expr.substring(openParen + 1, closeParen)
-            val innerResult = evaluateSimpleExpression(innerExpr)
-
-            expr = expr.substring(0, openParen) + innerResult + expr.substring(closeParen + 1)
+        var i = 0
+        while (i < tokens.size) {
+            val c = tokens[i]
+            when {
+                c.isDigit() || c == '.' -> {
+                    val sb = StringBuilder()
+                    while (i < tokens.size && (tokens[i].isDigit() || tokens[i] == '.')) {
+                        sb.append(tokens[i])
+                        i++
+                    }
+                    valores.push(sb.toString().toDouble())
+                    i--
+                }
+                c == '(' -> operadores.push(c)
+                c == ')' -> {
+                    while (operadores.peek() != '(') {
+                        valores.push(aplicarOperador(operadores.pop(), valores.pop(), valores.pop()))
+                    }
+                    operadores.pop()
+                }
+                c == '+' || c == '-' || c == '*' || c == '/' -> {
+                    while (!operadores.empty() && temPrecedencia(c, operadores.peek())) {
+                        valores.push(aplicarOperador(operadores.pop(), valores.pop(), valores.pop()))
+                    }
+                    operadores.push(c)
+                }
+            }
+            i++
         }
 
-        // Avalia a expressão sem parênteses
-        return evaluateSimpleExpression(expr)
+        while (!operadores.empty()) {
+            valores.push(aplicarOperador(operadores.pop(), valores.pop(), valores.pop()))
+        }
+
+        return valores.pop()
     }
+
+    private fun temPrecedencia(op1: Char, op2: Char): Boolean {
+        if (op2 == '(' || op2 == ')') return false
+        if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) return false
+        return true
+    }
+
+    private fun aplicarOperador(op: Char, b: Double, a: Double): Double {
+        return when (op) {
+            '+' -> a + b
+            '-' -> a - b
+            '*' -> a * b
+            '/' -> if (b == 0.0) Double.NaN else a / b
+            else -> 0.0
+        }
+    }
+
 
     private fun evaluateSimpleExpression(expression: String): Double {
         var expr = expression

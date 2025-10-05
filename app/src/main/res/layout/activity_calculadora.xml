@@ -450,7 +450,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             style="@style/Widget.MaterialComponents.Button.Icon"
-            app:icon="@drawable/icon_seta_esquerda"
+            app:icon="@drawable/icon_seta_direita"
             app:iconGravity="textEnd"
             app:backgroundTint="@color/vermelho_claro"
             app:cornerRadius="8dp" app:strokeWidth="1dp" app:strokeColor="@android:color/darker_gray"/>
@@ -465,7 +465,7 @@
             android:layout_columnWeight="1"
             android:layout_margin="4dp"
             style="@style/Widget.MaterialComponents.Button.Icon"
-            app:icon="@drawable/icon_seta_direita"
+            app:icon="@drawable/icon_seta_esquerda"
             app:iconGravity="textEnd"
             app:backgroundTint="@color/vermelho_claro"
             app:cornerRadius="8dp" app:strokeWidth="1dp" app:strokeColor="@android:color/darker_gray"/>
