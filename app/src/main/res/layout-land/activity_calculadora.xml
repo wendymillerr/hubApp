@@ -30,7 +30,7 @@
             android:textColorHint="#FFA500"
             android:textColorLink="#FFA500"
             android:textCursorDrawable="@drawable/cursor_laranja"
-
+            android:paddingEnd="16dp"
             android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline"
