@@ -85,14 +85,33 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <!-- Botão salvar -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSalvarNota"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar Nota"
-        android:textAllCaps="false"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="12dp" />
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSalvarNota"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Salvar Nota"
+            android:textAllCaps="false"
+            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="2dp"
+            app:cornerRadius="12dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/Voltar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sair do App"
+            android:textAllCaps="false"
+            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="2dp"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+
 
     <!-- Lista de notas -->
     <androidx.recyclerview.widget.RecyclerView

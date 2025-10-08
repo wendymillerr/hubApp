@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.aplicativohub.R
+import com.example.aplicativohub.hub.MainActivity
 import com.google.android.material.button.MaterialButton
 
 class CalculadoraActivity : AppCompatActivity() {
@@ -106,6 +107,12 @@ class CalculadoraActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnHist).setOnClickListener {
             showHistory()
+        }
+
+        val btnVoltar: Button = findViewById(R.id.Voltar)
+
+        btnVoltar.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

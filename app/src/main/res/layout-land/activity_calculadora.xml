@@ -38,35 +38,68 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        app:cardCornerRadius="25dp"
-        app:cardBackgroundColor="@android:color/transparent"
         app:layout_constraintTop_toBottomOf="@id/txtResultado"
         app:layout_constraintBottom_toTopOf="@id/gridButtons"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="16dp">
+        >
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnConfiguracoes"
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            style="@style/Widget.MaterialComponents.Button.Icon"
-            app:icon="@drawable/icon_lista"
-            app:iconSize="25dp"
-            android:textSize="18sp"
-            android:textColor="@android:color/white"
-            app:backgroundTint="@color/laranja"
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="25dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintHorizontal_bias="0.9"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp">
 
-            app:cornerRadius="30dp"
-            app:strokeColor="@android:color/white"
-            app:strokeWidth="1dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfiguracoes"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/icon_lista"
+                app:iconSize="25dp"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/laranja"
 
-    </androidx.cardview.widget.CardView>
+                app:cornerRadius="30dp"
+                app:strokeColor="@android:color/white"
+                app:strokeWidth="1dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="25dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:layout_constraintHorizontal_bias="0.9"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Voltar"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                app:icon="@drawable/icon_arrow_back"
+                app:iconSize="25dp"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"
+                app:backgroundTint="@color/laranja"
+
+                app:cornerRadius="30dp"
+                app:strokeColor="@android:color/white"
+                app:strokeWidth="1dp"/>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
     <!-- Guideline para controlar a proporção do display -->
     <androidx.constraintlayout.widget.Guideline
@@ -74,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.45" />
+        app:layout_constraintGuide_begin="187dp" />
 
     <!-- GridLayout totalmente responsivo -->
     <GridLayout

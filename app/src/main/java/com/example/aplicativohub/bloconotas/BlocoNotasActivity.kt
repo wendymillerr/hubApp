@@ -1,11 +1,13 @@
 package com.example.aplicativohub.bloconotas
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aplicativohub.R
 import com.example.aplicativohub.bloconotas.Nota
 import com.example.aplicativohub.bloconotas.NotaAdapter
+import com.example.aplicativohub.hub.MainActivity
+import com.example.aplicativohub.placar.PlacarActivity
 
 class BlocoNotasActivity : AppCompatActivity() {
 
@@ -24,6 +28,8 @@ class BlocoNotasActivity : AppCompatActivity() {
 
     private val listaNotas = mutableListOf<Nota>()
     private lateinit var adapter: NotaAdapter
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +76,12 @@ class BlocoNotasActivity : AppCompatActivity() {
             }
             override fun afterTextChanged(s: Editable?) {}
         })
+
+        val btnVoltar: Button = findViewById(R.id.Voltar)
+
+        btnVoltar.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     private fun filtrarNotas(texto: String) {

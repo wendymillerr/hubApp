@@ -1,4 +1,5 @@
 package com.example.aplicativohub.placar
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.aplicativohub.R
+import com.example.aplicativohub.hub.MainActivity
 
 class PlacarActivity : AppCompatActivity() {
     // Variáveis de pontuação
@@ -88,6 +90,12 @@ class PlacarActivity : AppCompatActivity() {
             }
 
             recreate()
+        }
+
+        val btnVoltar: Button = findViewById(R.id.Voltar)
+
+        btnVoltar.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 
