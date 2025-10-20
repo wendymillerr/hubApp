@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,12 +26,18 @@ class BlocoNotasActivity : AppCompatActivity() {
 
     private val listaNotas = mutableListOf<Nota>()
     private lateinit var adapter: NotaAdapter
+    private var inicio: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bloco_notas)
 
         AppLogger.i("Bloco de Notas iniciado")
+
+        if (listaNotas.isEmpty()){
+            AppLogger.i("Lista de notas vazia ao iniciar")
+            inicio = false
+        }
 
         edtTitulo = findViewById(R.id.edtTitulo)
         edtConteudo = findViewById(R.id.edtConteudo)
@@ -89,13 +96,20 @@ class BlocoNotasActivity : AppCompatActivity() {
     }
 
     private fun filtrarNotas(texto: String) {
-        val filtradas = listaNotas.filter { it.titulo.contains(texto, ignoreCase = true) }
-        AppLogger.v("Quantidade de notas filtradas: ${filtradas.size}")
-        adapter = NotaAdapter(filtradas.toMutableList()) { nota ->
-            AppLogger.w("Nota '${nota.titulo}' removida após filtro")
-            listaNotas.remove(nota)
-            adapter.notifyDataSetChanged()
+        try{
+            if (texto.contains("%")) {
+                throw Exception("Forçando erro para testar catch.")
+            }
+            val filtradas = listaNotas.filter { it.titulo.contains(texto, ignoreCase = true) }
+            AppLogger.v("Quantidade de notas filtradas: ${filtradas.size}")
+            adapter = NotaAdapter(filtradas.toMutableList()) { nota ->
+                AppLogger.w("Nota '${nota.titulo}' removida após filtro")
+                listaNotas.remove(nota)
+                adapter.notifyDataSetChanged()
+            }
+            recyclerView.adapter = adapter
+        } catch (e: Exception) {
+            AppLogger.e("Erro ao filtrar notas", e)
         }
-        recyclerView.adapter = adapter
     }
 }
